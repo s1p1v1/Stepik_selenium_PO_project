@@ -15,9 +15,9 @@ def test_guest_can_add_product_to_basket(browser):
     page.should_be_add_product_to_basket()
 
 
-def test_guest_can_addshould_be_cost_of_basket_corresponds_to_price(browser, link):
+def test_should_be_cost_of_basket_corresponds_to_price(browser):
     link = LINK
     print(link)
     page = ProductPage(browser, link)
     page.open()
-    page.should_be_add_product_to_basket()
+    page.should_be_cost_of_basket_corresponds_to_price()
