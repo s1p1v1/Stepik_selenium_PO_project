@@ -19,7 +19,8 @@ class ProductPage(BasePage):
         time.sleep(10)   # без ожидания не успевает появиться сообщение?
         basket_name_product = self.browser.find_element(*ProductPageLocators.MESSAGE_NAME_PRODUCT)
         print('name basket:', basket_name_product.text)
-        assert name_product.text == basket_name_product.text + 'z', 'The product name in the price does not match the product name in the message'
+        assert name_product.text == basket_name_product.text, \
+            'The product name in the price does not match the product name in the message'
 
     def should_be_cost_of_basket_corresponds_to_price(self):
         # реализуйте проверку, что стоимость корзины совпадает с ценой товара
@@ -29,4 +30,16 @@ class ProductPage(BasePage):
         time.sleep(10)  # без ожидания не успевает появиться сообщение?
         basket_value_product = self.browser.find_element(*ProductPageLocators.MESSAGE_BASKET_VALUE)
         print('value basket:', basket_value_product.text)
-        assert price_product.text == basket_value_product.text, 'The price of the item does not match the value of the item in the cart'
+        assert price_product.text == basket_value_product.text, \
+            'The price of the item does not match the value of the item in the cart'
+
+    def should_not_be_success_message(self):
+        # проверка отсутствия элемента в течение заданного времени
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_is_disappeared(self):
+        # проверка отсутствия элемента после заданного времени
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "The success message is present, although it should disappear"
+

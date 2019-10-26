@@ -23,3 +23,5 @@ class ProductPageLocators():
     #MESSAGE_NAME_PRODUCT = (By.CSS_SELECTOR, ".alertinner strong")
     MESSAGE_NAME_PRODUCT = (By.CSS_SELECTOR, "#messages .alertinner > strong")
     MESSAGE_BASKET_VALUE = (By.CSS_SELECTOR, "#messages .alertinner p strong")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alert")
+
