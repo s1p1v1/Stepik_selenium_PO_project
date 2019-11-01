@@ -2,11 +2,16 @@
 
 from selenium.webdriver.common.by import By
 
+class BasePageLocators():
+    # селекторы для всех наследущих BasePage классов (PO)
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
 class MainPageLocators():
     # каждый селектор — это пара: как искать и что искать
     #LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    LOGIN_LINK = (By.CSS_SELECTOR, "#registration_link")
-
+    #LOGIN_LINK = (By.CSS_SELECTOR, "#registration_link")
+    pass
 
 class LoginPageLocators():
     LOGIN_FORM = (By.ID, 'login_form')
@@ -24,4 +29,7 @@ class ProductPageLocators():
     MESSAGE_NAME_PRODUCT = (By.CSS_SELECTOR, "#messages .alertinner > strong")
     MESSAGE_BASKET_VALUE = (By.CSS_SELECTOR, "#messages .alertinner p strong")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alert")
+
+class BasketPageLocators():
+    BASKET_ITEM = (By.CSS_SELECTOR, ".basket-items")
 

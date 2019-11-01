@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from .locators import BasePageLocators
 
 class BasePage():
     def __init__(self, browser, url, timeout=20):
@@ -15,6 +15,16 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
+
+    # Проверка гостевого перехода на страницу регистрации/входа
+    def go_to_login_page(self):
+        #link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+
+    # Проверка наличия ссылки для гостевого перехода на страницу регистрации/входа
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
     # Проверка наличия элемента на странице
     def is_element_present(self, how, what):
