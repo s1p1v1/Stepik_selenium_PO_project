@@ -16,10 +16,15 @@ class BasePage():
     def open(self):
         self.browser.get(self.url)
 
-    # Проверка гостевого перехода на страницу регистрации/входа
+    # Переход на страницу регистрации/входа
     def go_to_login_page(self):
         #link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        link.click()
+
+    # Переход на страницу корзины по кнопке в шапке сайта
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
         link.click()
 
     # Проверка наличия ссылки для гостевого перехода на страницу регистрации/входа

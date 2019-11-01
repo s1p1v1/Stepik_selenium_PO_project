@@ -6,6 +6,7 @@ class BasePageLocators():
     # селекторы для всех наследущих BasePage классов (PO)
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.CSS_SELECTOR, ".basket-mini a")
 
 class MainPageLocators():
     # каждый селектор — это пара: как искать и что искать
@@ -31,5 +32,8 @@ class ProductPageLocators():
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages .alert")
 
 class BasketPageLocators():
-    BASKET_ITEM = (By.CSS_SELECTOR, ".basket-items")
+    #BASKET_ITEM = (By.CSS_SELECTOR, ".basket-items")
+    BASKET = (By.CSS_SELECTOR, "#basket_formset")
+    #BASKET = (By.CSS_SELECTOR, "#content_inner #basket_formset")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
 
