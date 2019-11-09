@@ -7,6 +7,7 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET_LINK = (By.CSS_SELECTOR, ".basket-mini a")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class MainPageLocators():
     # каждый селектор — это пара: как искать и что искать
@@ -17,6 +18,10 @@ class MainPageLocators():
 class LoginPageLocators():
     LOGIN_FORM = (By.ID, 'login_form')
     REGISTER_FORM = (By.ID, 'register_form')
+    INPUT_EMAIL = (By.ID, 'id_registration-email')
+    INPUT_PASSWORD_1 = (By.ID, 'id_registration-password1')
+    INPUT_PASSWORD_2 = (By.ID, 'id_registration-password2')
+    REGISTER_BUTTON = (By.CSS_SELECTOR, '#register_form .btn')
 
 
 class ProductPageLocators():

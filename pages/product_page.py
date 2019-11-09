@@ -8,17 +8,21 @@ class ProductPage(BasePage):
         #print(*ProductPageLocators.PRODUCT_BUTTON)
         button = self.browser.find_element(*ProductPageLocators.PRODUCT_BUTTON)
         button.click()
-        time.sleep(2)
-        self.solve_quiz_and_get_code()
+        #time.sleep(2)
+        #self.solve_quiz_and_get_code()
 
     def should_be_add_product_to_basket(self):
         # реализуйте проверку, что название товара в сообщении соответствует добавляемому товару
         name_product = self.browser.find_element(*ProductPageLocators.NAME_PRODUCT)
         print('name page:', name_product.text)
         self.add_product_to_basket()
-        time.sleep(10)   # без ожидания не успевает появиться сообщение?
+        #time.sleep(10)   # без ожидания не успевает появиться сообщение?
         basket_name_product = self.browser.find_element(*ProductPageLocators.MESSAGE_NAME_PRODUCT)
         print('name basket:', basket_name_product.text)
+        # Здесь geckodriver и chromedriver выдают ошибку - ссылка на устаревший элемент!?
+        # Костылем используем повторное чтение...
+        name_product = self.browser.find_element(*ProductPageLocators.NAME_PRODUCT)
+        print('условие -> ', name_product.text == basket_name_product.text)
         assert name_product.text == basket_name_product.text, \
             'The product name in the price does not match the product name in the message'
 
