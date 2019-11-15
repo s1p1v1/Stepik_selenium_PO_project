@@ -1,4 +1,3 @@
-import time
 from .base_page import BasePage
 from .locators import BasketPageLocators
 
@@ -11,6 +10,6 @@ class BasketPage(BasePage):
     def should_is_cart_message_present(self):
         # проверка наличия сообщения о пустой корзине
         message = self.browser.find_element(*BasketPageLocators.SUCCESS_MESSAGE)
-        print('message:', message.text)
+        #print('message:', message.text)
         assert self.is_element_present(*BasketPageLocators.SUCCESS_MESSAGE), "Missing message about an empty cart"
 
